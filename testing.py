@@ -1,7 +1,7 @@
 # testing things
 
-import to_10_system
+import from_decimal
 
-r = to_10_system.to_decimal('77', 8)
+r = from_decimal.from_decimal(10.1231242, 2)
 
 print(r)
