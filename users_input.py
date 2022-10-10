@@ -1,4 +1,5 @@
 # users input
+import re
 
 def enter_system():
     """
@@ -29,6 +30,7 @@ def in_system(x : str, system : int):
     
     return True
 
+
 def enter_numbers(system : int):
     """
     Asks user to enter two numbers in the chosen system
@@ -49,3 +51,24 @@ def enter_numbers(system : int):
                 continue
 
     return 0, 0
+
+
+def enter_expression(system : int):
+    """
+    Asks user to enter the expression
+    """
+    while True:
+        try:
+            users_input = input('Enter the expression: \n')
+            (x, operation, y) = tuple(map(str, users_input.split()))
+        except:
+            print('Incorrect input! Please, try again.')
+            continue
+        else:
+            if (in_system(x, system)) and (in_system(y, system)) and (operation in ['+', '-', '*', '/']):
+                return x, y, operation
+            else:
+                print('Incorrect input! Please, try again.')
+                continue
+
+    return 0, 0, ""
