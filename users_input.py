@@ -29,6 +29,7 @@ def in_system(x : str, system : int):
     
     return True
 
+
 def enter_numbers(system : int):
     """
     Asks user to enter two numbers in the chosen system
@@ -49,3 +50,25 @@ def enter_numbers(system : int):
                 continue
 
     return 0, 0
+
+
+def enter_operation():
+    """
+    Asks user to enter operation +, -, * or /
+    """
+    while True:
+        try:
+            users_input = input('Enter the operation(+, -, * or /): ')
+            # Checks if exactly one symbol was entered
+            (operation,) = tuple(map(str, users_input.split()))
+        except:
+            print('Incorrect input! Please, try again.')
+            continue
+        else:
+            if operation in ['+', '-', '*', '/']:
+                return operation
+            else:
+                print('Incorrect input! Please, try again.')
+                continue
+
+    return ""
